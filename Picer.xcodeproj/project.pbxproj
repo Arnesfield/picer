@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7600584F1FC1BB7800FA3D33 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7600584E1FC1BB7800FA3D33 /* Common.swift */; };
 		760503F11FC1832E00CFE6C9 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760503F01FC1832E00CFE6C9 /* UploadViewController.swift */; };
 		7656B2631FC160BE0055DD0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7656B2621FC160BE0055DD0F /* AppDelegate.swift */; };
 		7656B2651FC160BE0055DD0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7656B2641FC160BE0055DD0F /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7600584E1FC1BB7800FA3D33 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		760503F01FC1832E00CFE6C9 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		7656B25F1FC160BE0055DD0F /* Picer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7656B2621FC160BE0055DD0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				7656B2741FC1686B0055DD0F /* MainViewController.swift */,
 				7656B2761FC16E580055DD0F /* WelcomeViewController.swift */,
 				760503F01FC1832E00CFE6C9 /* UploadViewController.swift */,
+				7600584E1FC1BB7800FA3D33 /* Common.swift */,
 			);
 			path = Picer;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				760503F11FC1832E00CFE6C9 /* UploadViewController.swift in Sources */,
 				7656B2771FC16E580055DD0F /* WelcomeViewController.swift in Sources */,
 				7656B2651FC160BE0055DD0F /* ViewController.swift in Sources */,
+				7600584F1FC1BB7800FA3D33 /* Common.swift in Sources */,
 				7656B2631FC160BE0055DD0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

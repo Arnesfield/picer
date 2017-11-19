@@ -275,9 +275,9 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="EhP-4U-Q10">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="c9Z-kc-aeI">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="c9Z-kc-aeI">
                             <connections>
-                                <action selector="btnPost:" destination="IZR-m8-eEr" id="4M6-AL-slm"/>
+                                <action selector="btnShare:" destination="IZR-m8-eEr" id="B3O-xd-bXm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
