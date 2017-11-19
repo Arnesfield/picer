@@ -106,22 +106,22 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             if error != nil {
-                print("error = \(String(describing: error))")
+                // print("error = \(String(describing: error))")
                 DispatchQueue.main.async(execute: {
                     self.doError()
                 });
                 return
             }
             
-            print("response = \(String(describing: response))")
+            // print("response = \(String(describing: response))")
             
-            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print("response data = \(responseString!)")
+            // let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            // print("response data = \(responseString!)")
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
                 
-                print(json!)
+                // print(json!)
                 
                 let success = json?.value(forKey: "success") as! Int
                 
@@ -137,7 +137,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                 }
                 
             } catch {
-                print(error)
+                // print(error)
                 DispatchQueue.main.async(execute: {
                     self.doError()
                 });
@@ -198,7 +198,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         body.appendString("--\(boundary)--\r\n")
         
-        print(body)
+        // print(body)
         
         return body
     }

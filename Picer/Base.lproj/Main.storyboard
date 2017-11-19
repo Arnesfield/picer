@@ -171,7 +171,47 @@
                     <view key="view" contentMode="scaleToFill" id="eXn-zd-0Ra">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUN-Ty-Qis">
+                                <rect key="frame" x="0.0" y="587" width="375" height="80"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="2e8-aa-i8r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="btnCamera:" destination="IZR-m8-eEr" eventType="touchUpInside" id="efS-1d-zB9"/>
+                                    <action selector="btnRefresh:" destination="hWD-c4-GjC" eventType="touchUpInside" id="DOX-aO-2af"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMw-Ro-m5h">
+                                <rect key="frame" x="16" y="90" width="343" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Brg-oh-UuL">
+                                <rect key="frame" x="163" y="80" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="PPh-hw-Oht"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="RKP-gF-ZVd"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="48" id="i9U-EE-HWc"/>
+                                    <constraint firstAttribute="width" constant="48" id="s1Z-sY-dXN"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eUN-Ty-Qis" secondAttribute="trailing" id="2ie-g3-Nq1"/>
+                            <constraint firstItem="AMw-Ro-m5h" firstAttribute="leading" secondItem="eXn-zd-0Ra" secondAttribute="leading" constant="16" id="8YT-no-zeA"/>
+                            <constraint firstItem="CVA-Mg-cxY" firstAttribute="top" secondItem="eUN-Ty-Qis" secondAttribute="bottom" id="F3z-gm-UIB"/>
+                            <constraint firstItem="Brg-oh-UuL" firstAttribute="top" secondItem="7t3-tG-V7h" secondAttribute="bottom" constant="16" id="IF5-Bj-0Qy"/>
+                            <constraint firstItem="Brg-oh-UuL" firstAttribute="centerX" secondItem="eXn-zd-0Ra" secondAttribute="centerX" id="SBP-u2-IOR"/>
+                            <constraint firstItem="AMw-Ro-m5h" firstAttribute="width" secondItem="eXn-zd-0Ra" secondAttribute="width" constant="-32" id="d5Z-Go-nCi"/>
+                            <constraint firstItem="AMw-Ro-m5h" firstAttribute="top" secondItem="7t3-tG-V7h" secondAttribute="bottom" constant="26" id="uiK-dd-MKn"/>
+                            <constraint firstItem="eUN-Ty-Qis" firstAttribute="leading" secondItem="eXn-zd-0Ra" secondAttribute="leading" id="ve3-gl-ZV8"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Picer:" id="zFM-Ug-rWg">
                         <barButtonItem key="backBarButtonItem" title="Back" id="VEE-3y-bsn"/>
@@ -187,12 +227,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="btnOutRefresh" destination="eUN-Ty-Qis" id="iPD-yc-Sq9"/>
+                        <outlet property="indicator" destination="Brg-oh-UuL" id="AIe-e9-W1X"/>
+                        <outlet property="lblMsg" destination="AMw-Ro-m5h" id="Yhg-Pb-BRU"/>
                         <outlet property="navItem" destination="zFM-Ug-rWg" id="pQh-Va-kyf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0k-PG-OdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1410" y="122"/>
+            <point key="canvasLocation" x="1408.8" y="121.88905547226388"/>
         </scene>
         <!--Title-->
         <scene sceneID="UzL-Y0-6su">
