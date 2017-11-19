@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Upload extends MY_View_Controller {
+class Upload extends MY_Custom_Controller {
 
   public function __construct() {
     parent::__construct();
@@ -37,22 +37,6 @@ class Upload extends MY_View_Controller {
     else {
       $this->_fail('Unable to add image.');
     }
-  }
-
-  private function _success($data = FALSE) {
-    echo json_encode(array(
-      'success' => 1,
-      'data' => $data
-    ));
-    exit();
-  }
-
-  private function _fail($data = FALSE) {
-    echo json_encode(array(
-      'success' => 0,
-      'data' => $data
-    ));
-    exit();
   }
 
   // for image upload

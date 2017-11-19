@@ -77,4 +77,24 @@ class MY_View_Controller extends MY_Controller {
   }
 }
 
+class MY_Custom_Controller extends MY_View_Controller {
+  
+  protected function _success($data = FALSE) {
+    $this->_on(1, $data);
+  }
+
+  protected function _fail($data = FALSE) {
+    $this->_on(0, $data);
+  }
+
+  protected function _on($success, $data = FALSE) {
+    echo json_encode(array(
+      'success' => $success,
+      'data' => $data
+    ));
+    exit();
+  }
+
+}
+
 ?>
