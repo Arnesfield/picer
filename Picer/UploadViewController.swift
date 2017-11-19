@@ -12,8 +12,13 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     private static let URL: String = Common.BASE_URL + "upload"
     
+    @IBOutlet weak var btnOutShare: UIBarButtonItem!
+    @IBOutlet weak var btnOutCamera: UIButton!
+    @IBOutlet weak var btnOutGallery: UIButton!
     @IBOutlet weak var txtField: UITextField!
     @IBOutlet weak var imgView: UIImageView!
+    @IBOutlet weak var lblMsg: UILabel!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     @IBAction func btnCamera(_ sender: UIButton) {
         self.selectPhotoFrom(photoLibrary: false)
@@ -56,20 +61,28 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     }
 
     private func doUpload() {
-        guard let imageData = UIImageJPEGRepresentation(self.imgView.image!, 1) else {
+        guard let viewImage = self.imgView.image else {
+            lblMsg.text = "Choose an image."
             return
         }
         
+        guard let imageData = UIImageJPEGRepresentation(viewImage, 1) else {
+            return
+        }
+        
+        guard let lbl = txtField.text else {
+            lblMsg.text = "A label is also required."
+            return
+        }
+        
+        
         var name = ""
-        var label = ""
+        let label = lbl
         
         if let uname = UserDefaults.standard.value(forKey: "name") {
             name = uname as! String
         }
         
-        if let lbl = txtField.text {
-            label = lbl
-        }
         
         let url = NSURL(string: UploadViewController.URL)
         
@@ -87,11 +100,16 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         request.httpBody = createBodyWithParameters(parameters: param, filePathKey: "image", imageDataKey: imageData as NSData, boundary: boundary) as Data
         
+        self.doCommon(done: false)
+        lblMsg.text = "Uploading..."
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             if error != nil {
                 print("error = \(String(describing: error))")
+                DispatchQueue.main.async(execute: {
+                    self.doError()
+                });
                 return
             }
             
@@ -105,17 +123,55 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
                 
                 print(json!)
                 
-                DispatchQueue.main.async(execute: {
-                    self.imgView.image = nil
-                });
+                let success = json?.value(forKey: "success") as! Int
+                
+                if success == 1 {
+                    DispatchQueue.main.async(execute: {
+                        self.doSuccess()
+                    });
+                }
+                else  {
+                    DispatchQueue.main.async(execute: {
+                        self.doError()
+                    });
+                }
+                
             } catch {
                 print(error)
+                DispatchQueue.main.async(execute: {
+                    self.doError()
+                });
             }
             
             
         }
         
         task.resume()
+    }
+    
+    private func doCommon(done: Bool) {
+        if done {
+            indicator.stopAnimating()
+        }
+        else {
+            indicator.startAnimating()
+        }
+        txtField.isEnabled = done
+        btnOutCamera.isEnabled = done
+        btnOutGallery.isEnabled = done
+        btnOutShare.isEnabled = done
+    }
+    
+    private func doSuccess() {
+        self.doCommon(done: true)
+        self.imgView.image = nil
+        self.txtField.text = ""
+        self.lblMsg.text = "Successfully shared photo!"
+    }
+    
+    private func doError() {
+        self.doCommon(done: true)
+        self.lblMsg.text = "Cannot upload photo."
     }
     
     private func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
