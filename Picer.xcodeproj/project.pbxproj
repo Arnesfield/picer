@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		760503F11FC1832E00CFE6C9 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760503F01FC1832E00CFE6C9 /* UploadViewController.swift */; };
 		7656B2631FC160BE0055DD0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7656B2621FC160BE0055DD0F /* AppDelegate.swift */; };
 		7656B2651FC160BE0055DD0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7656B2641FC160BE0055DD0F /* ViewController.swift */; };
 		7656B2681FC160BE0055DD0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7656B2661FC160BE0055DD0F /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		760503F01FC1832E00CFE6C9 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		7656B25F1FC160BE0055DD0F /* Picer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7656B2621FC160BE0055DD0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7656B2641FC160BE0055DD0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				7656B26E1FC160BE0055DD0F /* Info.plist */,
 				7656B2741FC1686B0055DD0F /* MainViewController.swift */,
 				7656B2761FC16E580055DD0F /* WelcomeViewController.swift */,
+				760503F01FC1832E00CFE6C9 /* UploadViewController.swift */,
 			);
 			path = Picer;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7656B2751FC1686B0055DD0F /* MainViewController.swift in Sources */,
+				760503F11FC1832E00CFE6C9 /* UploadViewController.swift in Sources */,
 				7656B2771FC16E580055DD0F /* WelcomeViewController.swift in Sources */,
 				7656B2651FC160BE0055DD0F /* ViewController.swift in Sources */,
 				7656B2631FC160BE0055DD0F /* AppDelegate.swift in Sources */,
@@ -314,6 +318,7 @@
 				7656B2731FC160BE0055DD0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
