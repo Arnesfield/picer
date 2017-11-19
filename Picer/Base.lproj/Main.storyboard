@@ -214,12 +214,18 @@
                                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="Camera"/>
+                                        <connections>
+                                            <action selector="btnCamera:" destination="IZR-m8-eEr" eventType="touchUpInside" id="Fdm-by-2ff"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yPK-gG-pMn">
                                         <rect key="frame" x="384" y="0.0" width="384" height="80"/>
                                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="Gallery"/>
+                                        <connections>
+                                            <action selector="btnGalery:" destination="IZR-m8-eEr" eventType="touchUpInside" id="9cP-Tf-vGx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -269,9 +275,14 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="EhP-4U-Q10">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="c9Z-kc-aeI"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="c9Z-kc-aeI">
+                            <connections>
+                                <action selector="btnPost:" destination="IZR-m8-eEr" id="4M6-AL-slm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imgView" destination="TWz-WH-l5f" id="BNU-Gg-V3b"/>
                         <outlet property="txtField" destination="3ab-XB-bfX" id="Gew-LG-or4"/>
                     </connections>
                 </viewController>
