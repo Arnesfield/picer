@@ -90,7 +90,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-103" y="-630"/>
+            <point key="canvasLocation" x="633" y="-670"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="SQ1-d9-dyR">
@@ -173,14 +173,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="zFM-Ug-rWg"/>
+                    <navigationItem key="navigationItem" title="Title" id="zFM-Ug-rWg">
+                        <barButtonItem key="leftBarButtonItem" title="Edit Name" id="fyq-jC-uFI">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="setName" id="0yF-W2-L8K"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="Cvw-bI-6Gm"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="navItem" destination="zFM-Ug-rWg" id="pQh-Va-kyf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0k-PG-OdB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="122"/>
+            <point key="canvasLocation" x="1410" y="122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6QZ-M2-tgr">

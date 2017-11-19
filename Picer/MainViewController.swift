@@ -23,6 +23,12 @@ class MainViewController: UIViewController {
         self.navItem.title = "Picer: \(self.name)"
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "setName" {
+            UserDefaults.standard.removeObject(forKey: "name")
+        }
+        return true
+    }
 
     /*
     // MARK: - Navigation
