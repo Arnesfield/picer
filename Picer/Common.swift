@@ -11,6 +11,6 @@ import UIKit
 class Common: NSObject {
     private static let PRODUCTION = false
     public static let BASE_URL = Common.PRODUCTION
-        ? "http://"
+        ? "http://picer.x10.mx"
         : "http://10.0.2.2/school/picer/public/"
 }
