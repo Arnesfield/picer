@@ -16,6 +16,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         didSet {
             if let shares = self.shares {
                 if self.images.count == shares.count && self.images.count != 0 {
+                    txtSearch.text = nil
                     tblView.reloadData()
                 }
             }
@@ -168,6 +169,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func doError(_ data: Any? = nil) {
         self.doCommon(done: true)
         lblMsg.text = "No posts to see."
+        txtSearch.text = nil
         
         if let d = data {
             print(d)

@@ -9,8 +9,8 @@
 import UIKit
 
 class Common: NSObject {
-    private static let PRODUCTION = false
+    private static let PRODUCTION = !false
     public static let BASE_URL = Common.PRODUCTION
-        ? "http://picer.x10.mx"
+        ? "http://picer.x10.mx/"
         : "http://10.0.2.2/school/picer/public/"
 }
