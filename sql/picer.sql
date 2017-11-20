@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2017 at 02:04 AM
+-- Generation Time: Nov 20, 2017 at 01:22 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -44,7 +44,8 @@ CREATE TABLE `shares` (
 INSERT INTO `shares` (`id`, `name`, `label`, `image`, `datetime`, `status`) VALUES
 (1, 'rylee', 'Amaze', 'IMG_191117153521.jpg', 1511139031, 1),
 (2, 'rylee', 'Arnesfield', 'IMG_191117163146.jpg', 1511139224, 1),
-(3, 'rylee', 'Test', 'IMG_191117164718.jpg', 1511139640, 1);
+(3, 'rylee', 'Test', 'IMG_191117164718.jpg', 1511139640, 1),
+(4, 'charlyn', 'Anime hello', 'IMG_201117130326.jpg', 1511179406, 1);
 
 --
 -- Indexes for dumped tables
@@ -64,7 +65,7 @@ ALTER TABLE `shares`
 -- AUTO_INCREMENT for table `shares`
 --
 ALTER TABLE `shares`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
