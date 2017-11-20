@@ -5,8 +5,11 @@ class Shares_model extends MY_CRUD_Model {
 
   public $_tbl = 'shares';
 
-  public function fetch($where) {
-    return $this->_read($this->_tbl, array('where' => $where));
+  public function fetch($where, $order_by = array('datetime', 'DESC')) {
+    return $this->_read($this->_tbl, array(
+      'where' => $where,
+      'order_by' => $order_by
+    ));
   }
 
   public function update($data, $where) {

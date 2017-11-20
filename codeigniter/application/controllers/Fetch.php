@@ -13,11 +13,17 @@ class Fetch extends MY_Custom_Controller {
     }
 
     $this->load->model('shares_model');
-
-    $shares = $this->shares_model->fetch(array());
+    $text = $this->input->post('data') ? $this->input->post('data') : '';
+    
+    $where = "(name LIKE '%$text%' OR label LIKE '%$text%')";
+    $shares = $this->shares_model->fetch($where);
 
     if (!$shares) {
       $this->_fail('No shared photos.');
+    }
+
+    foreach ($shares as $key => $share) {
+      $shares[$key]['datetime'] = date('d-M-Y H:i', $share['datetime']);
     }
 
     $this->_success($shares);
