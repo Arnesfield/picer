@@ -16,6 +16,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         didSet {
             if let shares = self.shares {
                 if self.images.count == shares.count && self.images.count != 0 {
+                    // success
+                    self.doCommon(done: true)
+                    lblMsg.text = ""
                     txtSearch.text = nil
                     tblView.reloadData()
                 }
@@ -98,7 +101,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
             data, response, error in
             if error != nil {
-                // print("error = \(String(describing: error))")
+                print("error = \(String(describing: error))")
                 DispatchQueue.main.async(execute: {
                     self.doError(1)
                 });
@@ -152,8 +155,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func doSuccess(_ json: NSDictionary?) {
-        self.doCommon(done: true)
-        
         if let strJson = json {
             if let shares = strJson.value(forKey: "data") as? Array<NSObject> {
                 self.shares = shares
@@ -162,8 +163,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 startDownloading(shares)
             }
         }
-        
-        lblMsg.text = ""
     }
     
     private func doError(_ data: Any? = nil) {
