@@ -14,6 +14,8 @@ class ShareTableViewCell: UITableViewCell {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var lblUser: UILabel!
+    @IBOutlet weak var lblDatetime: UILabel!
+    @IBOutlet weak var lblLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,6 +60,12 @@ class ShareTableViewCell: UITableViewCell {
         
         if let name = data.value(forKey: "name") as? String {
             self.lblUser.text = name
+        }
+        if let datetime = data.value(forKey: "datetime") as? String {
+            self.lblDatetime.text = datetime
+        }
+        if let label = data.value(forKey: "label") as? String {
+            self.lblLabel.text = label
         }
         
     }

@@ -12,6 +12,7 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     
     private static let URL: String = Common.BASE_URL + "upload"
     
+    @IBOutlet weak var btnNavTitle: UINavigationItem!
     @IBOutlet weak var btnOutShare: UIBarButtonItem!
     @IBOutlet weak var btnOutCamera: UIButton!
     @IBOutlet weak var btnOutGallery: UIButton!
@@ -54,6 +55,13 @@ class UploadViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         super.viewDidLoad()
 
         txtField.delegate = self
+        
+        var name = ""
+        if let uname = UserDefaults.standard.value(forKey: "name") {
+            name = uname as! String
+        }
+        
+        self.btnNavTitle.title = "Upload: \(name)"
     }
     
     @IBAction func tapHandler(_ sender: UITapGestureRecognizer) {

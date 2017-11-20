@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     private static let FETCH_URL = Common.BASE_URL + "fetch"
     
@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var name = ""
     private var shares: Array<NSObject>?
     
+    @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tblView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var lblMsg: UILabel!
@@ -33,6 +34,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBAction func btnRefresh(_ sender: UIButton) {
         self.images = [:]
         self.getShares()
+    }
+    
+    @IBAction func tapHandler(_ sender: UITapGestureRecognizer) {
+        txtSearch.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if let txt = txtSearch.text {
+            if !txt.isEmpty {
+                self.btnRefresh(btnOutRefresh)
+            }
+        }
+        return true
     }
     
     override func viewDidLoad() {
@@ -47,6 +62,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // set delegate and data source
         tblView.delegate = self
         tblView.dataSource = self
+        
+        txtSearch.delegate = self
+        
+        // refresh
+        self.btnRefresh(btnOutRefresh)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -62,7 +82,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let request = NSMutableURLRequest(url: url! as URL)
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        let postString = "fetch=1"
+        var t = ""
+        if let txt = txtSearch.text {
+            if !txt.isEmpty {
+                t = txt
+            }
+        }
+        let postString = "fetch=1&data=\(t)"
         request.httpBody = postString.data(using: .utf8)
         
         self.doCommon(done: false)
@@ -141,7 +167,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private func doError(_ data: Any? = nil) {
         self.doCommon(done: true)
-        lblMsg.text = "Cannot load shares."
+        lblMsg.text = "No posts to see."
         
         if let d = data {
             print(d)
@@ -184,7 +210,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //}
 
         if let image = self.images[indexPath.row] {
-            return image.size.height + CGFloat(128)
+            let maxWidth = self.view.frame.size.width
+            let imgWidth = image.size.width
+            let diff = maxWidth - imgWidth
+            var add: CGFloat = 0
+            if diff >= 0 {
+                // add this diff to height of cell
+                add = CGFloat(diff)
+            }
+            return image.size.height + CGFloat(128) + add
         }
         
         return 0
