@@ -54,6 +54,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // refresh
+        self.btnRefresh(btnOutRefresh)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,9 +73,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tblView.dataSource = self
         
         txtSearch.delegate = self
-        
-        // refresh
-        self.btnRefresh(btnOutRefresh)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
