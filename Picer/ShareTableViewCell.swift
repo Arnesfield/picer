@@ -44,6 +44,8 @@ class ShareTableViewCell: UITableViewCell {
         aspectConstraint = nil
     }
     
+    /*
+    
     func set(image: UIImage) {
         let aspect = image.size.width / image.size.height
         
@@ -54,6 +56,8 @@ class ShareTableViewCell: UITableViewCell {
         
         imgView.image = image
     }
+ 
+    */
     
     func set(data: NSObject) {
         self.cellData = data
