@@ -15,7 +15,7 @@ class Fetch extends MY_Custom_Controller {
     $this->load->model('shares_model');
     $text = $this->input->post('data') ? $this->input->post('data') : '';
     
-    $where = "(name LIKE '%$text%' OR label LIKE '%$text%')";
+    $where = "(name LIKE '%$text%' OR label LIKE '%$text%') AND status = 1";
     $shares = $this->shares_model->fetch($where);
 
     if (!$shares) {
