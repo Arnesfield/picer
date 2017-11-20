@@ -16,6 +16,7 @@ class Upload extends MY_Custom_Controller {
       'name' => $this->input->post('name', TRUE),
       'label' => $this->input->post('label', TRUE),
       'image' => '',
+      'datetime' => time(),
       'status' => 1
     );
 

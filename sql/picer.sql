@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2017 at 06:46 PM
+-- Generation Time: Nov 20, 2017 at 02:04 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -33,6 +33,7 @@ CREATE TABLE `shares` (
   `name` varchar(255) NOT NULL,
   `label` varchar(255) NOT NULL,
   `image` varchar(48) NOT NULL,
+  `datetime` int(11) NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -40,10 +41,10 @@ CREATE TABLE `shares` (
 -- Dumping data for table `shares`
 --
 
-INSERT INTO `shares` (`id`, `name`, `label`, `image`, `status`) VALUES
-(1, 'rylee', 'Amaze', 'IMG_191117153521.jpg', 1),
-(2, 'rylee', 'Arnesfield', 'IMG_191117163146.jpg', 1),
-(3, 'rylee', 'Test', 'IMG_191117164718.jpg', 1);
+INSERT INTO `shares` (`id`, `name`, `label`, `image`, `datetime`, `status`) VALUES
+(1, 'rylee', 'Amaze', 'IMG_191117153521.jpg', 1511139031, 1),
+(2, 'rylee', 'Arnesfield', 'IMG_191117163146.jpg', 1511139224, 1),
+(3, 'rylee', 'Test', 'IMG_191117164718.jpg', 1511139640, 1);
 
 --
 -- Indexes for dumped tables
