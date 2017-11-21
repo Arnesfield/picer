@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2017 at 01:22 PM
+-- Generation Time: Nov 21, 2017 at 12:41 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `picer`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `share_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `label` text NOT NULL,
+  `datetime` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -52,6 +67,12 @@ INSERT INTO `shares` (`id`, `name`, `label`, `image`, `datetime`, `status`) VALU
 --
 
 --
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `shares`
 --
 ALTER TABLE `shares`
@@ -60,6 +81,12 @@ ALTER TABLE `shares`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `shares`

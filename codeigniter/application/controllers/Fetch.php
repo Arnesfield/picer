@@ -28,6 +28,30 @@ class Fetch extends MY_Custom_Controller {
 
     $this->_success($shares);
   }
+
+  public function comments() {
+    if (!$this->input->post('fetch')) {
+      exit();
+    }
+
+    $this->load->model('comment_model');
+    $where = array(
+      'share_id' => $this->input->post('sid', TRUE),
+      'status' => 1
+    );
+    $comments = $this->comment_model->fetch($where);
+
+    if (!$comments) {
+      $this->_fail('No comments.');
+    }
+
+    foreach ($comments as $key => $comment) {
+      $comments[$key]['datetime'] = date('d-M-Y H:i', $comment['datetime']);
+    }
+
+    $this->_success($comments);
+  }
+
 }
 
 ?>
